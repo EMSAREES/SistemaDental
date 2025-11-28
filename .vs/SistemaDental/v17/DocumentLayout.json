@@ -1,0 +1,104 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\emili\\Documents\\Proyecto\\C#\\SistemaDental\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{C2B7924D-18D2-46E7-8930-7DEA43A27626}|SistemaDental\\SistemaDental.csproj|c:\\users\\emili\\documents\\proyecto\\c#\\sistemadental\\sistemadental\\conexion\\conexionsql.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C2B7924D-18D2-46E7-8930-7DEA43A27626}|SistemaDental\\SistemaDental.csproj|solutionrelative:sistemadental\\conexion\\conexionsql.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C2B7924D-18D2-46E7-8930-7DEA43A27626}|SistemaDental\\SistemaDental.csproj|c:\\users\\emili\\documents\\proyecto\\c#\\sistemadental\\sistemadental\\class\\clslogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C2B7924D-18D2-46E7-8930-7DEA43A27626}|SistemaDental\\SistemaDental.csproj|solutionrelative:sistemadental\\class\\clslogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C2B7924D-18D2-46E7-8930-7DEA43A27626}|SistemaDental\\SistemaDental.csproj|c:\\users\\emili\\documents\\proyecto\\c#\\sistemadental\\sistemadental\\sistemadental.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{C2B7924D-18D2-46E7-8930-7DEA43A27626}|SistemaDental\\SistemaDental.csproj|solutionrelative:sistemadental\\sistemadental.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C2B7924D-18D2-46E7-8930-7DEA43A27626}|SistemaDental\\SistemaDental.csproj|c:\\users\\emili\\documents\\proyecto\\c#\\sistemadental\\sistemadental\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C2B7924D-18D2-46E7-8930-7DEA43A27626}|SistemaDental\\SistemaDental.csproj|solutionrelative:sistemadental\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C2B7924D-18D2-46E7-8930-7DEA43A27626}|SistemaDental\\SistemaDental.csproj|c:\\users\\emili\\documents\\proyecto\\c#\\sistemadental\\sistemadental\\forms\\loginform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{C2B7924D-18D2-46E7-8930-7DEA43A27626}|SistemaDental\\SistemaDental.csproj|solutionrelative:sistemadental\\forms\\loginform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ConexionSql.cs",
+              "DocumentMoniker": "C:\\Users\\emili\\Documents\\Proyecto\\C#\\SistemaDental\\SistemaDental\\Conexion\\ConexionSql.cs",
+              "RelativeDocumentMoniker": "SistemaDental\\Conexion\\ConexionSql.cs",
+              "ToolTip": "C:\\Users\\emili\\Documents\\Proyecto\\C#\\SistemaDental\\SistemaDental\\Conexion\\ConexionSql.cs",
+              "RelativeToolTip": "SistemaDental\\Conexion\\ConexionSql.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-28T02:09:11.216Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "clsLogin.cs",
+              "DocumentMoniker": "C:\\Users\\emili\\Documents\\Proyecto\\C#\\SistemaDental\\SistemaDental\\Class\\clsLogin.cs",
+              "RelativeDocumentMoniker": "SistemaDental\\Class\\clsLogin.cs",
+              "ToolTip": "C:\\Users\\emili\\Documents\\Proyecto\\C#\\SistemaDental\\SistemaDental\\Class\\clsLogin.cs",
+              "RelativeToolTip": "SistemaDental\\Class\\clsLogin.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-28T02:08:31.58Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "loginForm.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\emili\\Documents\\Proyecto\\C#\\SistemaDental\\SistemaDental\\Forms\\loginForm.cs",
+              "RelativeDocumentMoniker": "SistemaDental\\Forms\\loginForm.cs",
+              "ToolTip": "C:\\Users\\emili\\Documents\\Proyecto\\C#\\SistemaDental\\SistemaDental\\Forms\\loginForm.cs [Dise\u00F1o]",
+              "RelativeToolTip": "SistemaDental\\Forms\\loginForm.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-28T02:06:32.671Z",
+              "EditorCaption": " [Dise\u00F1o]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "SistemaDental",
+              "DocumentMoniker": "C:\\Users\\emili\\Documents\\Proyecto\\C#\\SistemaDental\\SistemaDental\\SistemaDental.csproj",
+              "RelativeDocumentMoniker": "SistemaDental\\SistemaDental.csproj",
+              "ToolTip": "C:\\Users\\emili\\Documents\\Proyecto\\C#\\SistemaDental\\SistemaDental\\SistemaDental.csproj",
+              "RelativeToolTip": "SistemaDental\\SistemaDental.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-11-28T02:04:51.054Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\emili\\Documents\\Proyecto\\C#\\SistemaDental\\SistemaDental\\Program.cs",
+              "RelativeDocumentMoniker": "SistemaDental\\Program.cs",
+              "ToolTip": "C:\\Users\\emili\\Documents\\Proyecto\\C#\\SistemaDental\\SistemaDental\\Program.cs",
+              "RelativeToolTip": "SistemaDental\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-28T02:04:46.41Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
