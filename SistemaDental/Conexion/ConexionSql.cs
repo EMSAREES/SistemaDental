@@ -10,7 +10,7 @@ namespace SistemaDental.Conexion
     {
         public static string conectar()
         {
-            string con = @"DATA Source=EMILIO\SQLEXPRESS;INITIAL CATALOG=Dental_Db;USER=sa;PASSWORD=tucontraseña";
+            string con = @"Data Source=EMILIO\SQLEXPRESS;Initial Catalog=Dental_Db;User ID=sa;Password=6870021;TrustServerCertificate=True";
 
             return con;
         }
