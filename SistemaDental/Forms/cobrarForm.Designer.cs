@@ -29,25 +29,39 @@
         private void InitializeComponent()
         {
             Cantidad = new Label();
-            tablaPaceinte = new DataGridView();
+            dgvTratamientos = new DataGridView();
+            N = new DataGridViewTextBoxColumn();
+            Column1 = new DataGridViewTextBoxColumn();
+            Column2 = new DataGridViewTextBoxColumn();
+            Column3 = new DataGridViewTextBoxColumn();
+            Column4 = new DataGridViewTextBoxColumn();
             btnCancelar = new Button();
             btnCobrar = new Button();
-            label2 = new Label();
+            lblTotal = new Label();
             label3 = new Label();
             label4 = new Label();
             txtTotal = new TextBox();
-            txtCobrado = new TextBox();
-            txtPendiente = new TextBox();
+            txtSaldoPendiente = new TextBox();
             dataGridView1 = new DataGridView();
             txtCantidad = new TextBox();
             label1 = new Label();
-            txtTratamiento = new ComboBox();
-            txtValor = new TextBox();
+            txtValorUnitario = new TextBox();
             label5 = new Label();
             label6 = new Label();
             txtSubtotal = new TextBox();
             btnAnadir = new Button();
-            ((System.ComponentModel.ISupportInitialize)tablaPaceinte).BeginInit();
+            txtTratamiento = new TextBox();
+            btnEliminar = new Button();
+            label7 = new Label();
+            lblNombre = new Label();
+            lblEdad = new Label();
+            lblSexo = new Label();
+            txtNombre = new TextBox();
+            txtEdad = new TextBox();
+            txtSexo = new TextBox();
+            dtpFecha = new DateTimePicker();
+            txtValorCobrar = new TextBox();
+            ((System.ComponentModel.ISupportInitialize)dgvTratamientos).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -61,15 +75,41 @@
             Cantidad.TabIndex = 10;
             Cantidad.Text = "Cantidad";
             // 
-            // tablaPaceinte
+            // dgvTratamientos
             // 
-            tablaPaceinte.BackgroundColor = Color.White;
-            tablaPaceinte.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            tablaPaceinte.GridColor = Color.White;
-            tablaPaceinte.Location = new Point(24, 196);
-            tablaPaceinte.Name = "tablaPaceinte";
-            tablaPaceinte.Size = new Size(1028, 279);
-            tablaPaceinte.TabIndex = 13;
+            dgvTratamientos.BackgroundColor = Color.White;
+            dgvTratamientos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvTratamientos.Columns.AddRange(new DataGridViewColumn[] { N, Column1, Column2, Column3, Column4 });
+            dgvTratamientos.GridColor = Color.White;
+            dgvTratamientos.Location = new Point(24, 196);
+            dgvTratamientos.Name = "dgvTratamientos";
+            dgvTratamientos.Size = new Size(1028, 279);
+            dgvTratamientos.TabIndex = 13;
+            // 
+            // N
+            // 
+            N.HeaderText = "N°";
+            N.Name = "N";
+            // 
+            // Column1
+            // 
+            Column1.HeaderText = "Cantidad";
+            Column1.Name = "Column1";
+            // 
+            // Column2
+            // 
+            Column2.HeaderText = "Tratamiento";
+            Column2.Name = "Column2";
+            // 
+            // Column3
+            // 
+            Column3.HeaderText = "Valor Uni.";
+            Column3.Name = "Column3";
+            // 
+            // Column4
+            // 
+            Column4.HeaderText = "Subtotal";
+            Column4.Name = "Column4";
             // 
             // btnCancelar
             // 
@@ -97,15 +137,15 @@
             btnCobrar.UseVisualStyleBackColor = false;
             btnCobrar.Click += btnCobrar_Click;
             // 
-            // label2
+            // lblTotal
             // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Arial Narrow", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.Location = new Point(239, 538);
-            label2.Name = "label2";
-            label2.Size = new Size(44, 20);
-            label2.TabIndex = 17;
-            label2.Text = "Total:";
+            lblTotal.AutoSize = true;
+            lblTotal.Font = new Font("Arial Narrow", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblTotal.Location = new Point(239, 538);
+            lblTotal.Name = "lblTotal";
+            lblTotal.Size = new Size(44, 20);
+            lblTotal.TabIndex = 17;
+            lblTotal.Text = "Total:";
             // 
             // label3
             // 
@@ -135,21 +175,13 @@
             txtTotal.Size = new Size(78, 23);
             txtTotal.TabIndex = 20;
             // 
-            // txtCobrado
+            // txtSaldoPendiente
             // 
-            txtCobrado.Enabled = false;
-            txtCobrado.Location = new Point(487, 538);
-            txtCobrado.Name = "txtCobrado";
-            txtCobrado.Size = new Size(128, 23);
-            txtCobrado.TabIndex = 21;
-            // 
-            // txtPendiente
-            // 
-            txtPendiente.Enabled = false;
-            txtPendiente.Location = new Point(751, 542);
-            txtPendiente.Name = "txtPendiente";
-            txtPendiente.Size = new Size(128, 23);
-            txtPendiente.TabIndex = 22;
+            txtSaldoPendiente.Enabled = false;
+            txtSaldoPendiente.Location = new Point(751, 542);
+            txtSaldoPendiente.Name = "txtSaldoPendiente";
+            txtSaldoPendiente.Size = new Size(128, 23);
+            txtSaldoPendiente.TabIndex = 22;
             // 
             // dataGridView1
             // 
@@ -157,7 +189,7 @@
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Location = new Point(24, 12);
             dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(377, 65);
+            dataGridView1.Size = new Size(305, 97);
             dataGridView1.TabIndex = 23;
             // 
             // txtCantidad
@@ -166,6 +198,8 @@
             txtCantidad.Name = "txtCantidad";
             txtCantidad.Size = new Size(100, 23);
             txtCantidad.TabIndex = 24;
+            txtCantidad.Text = "1";
+            txtCantidad.TextChanged += txtCantidad_TextChanged;
             // 
             // label1
             // 
@@ -177,20 +211,13 @@
             label1.TabIndex = 25;
             label1.Text = "Tratamiento";
             // 
-            // txtTratamiento
+            // txtValorUnitario
             // 
-            txtTratamiento.FormattingEnabled = true;
-            txtTratamiento.Location = new Point(130, 156);
-            txtTratamiento.Name = "txtTratamiento";
-            txtTratamiento.Size = new Size(455, 23);
-            txtTratamiento.TabIndex = 27;
-            // 
-            // txtValor
-            // 
-            txtValor.Location = new Point(591, 156);
-            txtValor.Name = "txtValor";
-            txtValor.Size = new Size(100, 23);
-            txtValor.TabIndex = 29;
+            txtValorUnitario.Location = new Point(591, 156);
+            txtValorUnitario.Name = "txtValorUnitario";
+            txtValorUnitario.Size = new Size(100, 23);
+            txtValorUnitario.TabIndex = 29;
+            txtValorUnitario.TextChanged += txtValorUnitario_TextChanged;
             // 
             // label5
             // 
@@ -208,9 +235,9 @@
             label6.Font = new Font("Arial Narrow", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label6.Location = new Point(697, 133);
             label6.Name = "label6";
-            label6.Size = new Size(71, 20);
+            label6.Size = new Size(61, 20);
             label6.TabIndex = 30;
-            label6.Text = "Valor Uni.";
+            label6.Text = "Subtotal";
             // 
             // txtSubtotal
             // 
@@ -231,8 +258,105 @@
             btnAnadir.Name = "btnAnadir";
             btnAnadir.Size = new Size(134, 35);
             btnAnadir.TabIndex = 33;
-            btnAnadir.Text = "Añadir";
+            btnAnadir.Text = "AÑADIR";
             btnAnadir.UseVisualStyleBackColor = false;
+            btnAnadir.Click += btnAnadir_Click;
+            // 
+            // txtTratamiento
+            // 
+            txtTratamiento.Location = new Point(130, 156);
+            txtTratamiento.Name = "txtTratamiento";
+            txtTratamiento.Size = new Size(455, 23);
+            txtTratamiento.TabIndex = 34;
+            // 
+            // btnEliminar
+            // 
+            btnEliminar.BackColor = Color.Crimson;
+            btnEliminar.Cursor = Cursors.Hand;
+            btnEliminar.ForeColor = Color.Transparent;
+            btnEliminar.Location = new Point(979, 142);
+            btnEliminar.Name = "btnEliminar";
+            btnEliminar.Size = new Size(73, 38);
+            btnEliminar.TabIndex = 35;
+            btnEliminar.Text = "ELIMINAR";
+            btnEliminar.UseVisualStyleBackColor = false;
+            btnEliminar.Click += btnEliminar_Click;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Font = new Font("Arial Narrow", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label7.Location = new Point(782, 15);
+            label7.Name = "label7";
+            label7.Size = new Size(50, 20);
+            label7.TabIndex = 36;
+            label7.Text = "Fecha:";
+            // 
+            // lblNombre
+            // 
+            lblNombre.AutoSize = true;
+            lblNombre.Location = new Point(39, 25);
+            lblNombre.Name = "lblNombre";
+            lblNombre.Size = new Size(51, 15);
+            lblNombre.TabIndex = 38;
+            lblNombre.Text = "Nombre";
+            // 
+            // lblEdad
+            // 
+            lblEdad.AutoSize = true;
+            lblEdad.Location = new Point(39, 54);
+            lblEdad.Name = "lblEdad";
+            lblEdad.Size = new Size(33, 15);
+            lblEdad.TabIndex = 39;
+            lblEdad.Text = "Edad";
+            // 
+            // lblSexo
+            // 
+            lblSexo.AutoSize = true;
+            lblSexo.Location = new Point(39, 83);
+            lblSexo.Name = "lblSexo";
+            lblSexo.Size = new Size(31, 15);
+            lblSexo.TabIndex = 40;
+            lblSexo.Text = "Sexo";
+            // 
+            // txtNombre
+            // 
+            txtNombre.Enabled = false;
+            txtNombre.Location = new Point(113, 22);
+            txtNombre.Name = "txtNombre";
+            txtNombre.Size = new Size(100, 23);
+            txtNombre.TabIndex = 41;
+            // 
+            // txtEdad
+            // 
+            txtEdad.Enabled = false;
+            txtEdad.Location = new Point(113, 51);
+            txtEdad.Name = "txtEdad";
+            txtEdad.Size = new Size(100, 23);
+            txtEdad.TabIndex = 42;
+            // 
+            // txtSexo
+            // 
+            txtSexo.Enabled = false;
+            txtSexo.Location = new Point(113, 80);
+            txtSexo.Name = "txtSexo";
+            txtSexo.Size = new Size(100, 23);
+            txtSexo.TabIndex = 43;
+            // 
+            // dtpFecha
+            // 
+            dtpFecha.Location = new Point(838, 13);
+            dtpFecha.Name = "dtpFecha";
+            dtpFecha.Size = new Size(214, 23);
+            dtpFecha.TabIndex = 44;
+            dtpFecha.Value = new DateTime(2025, 11, 30, 0, 27, 45, 0);
+            // 
+            // txtValorCobrar
+            // 
+            txtValorCobrar.Location = new Point(479, 539);
+            txtValorCobrar.Name = "txtValorCobrar";
+            txtValorCobrar.Size = new Size(149, 23);
+            txtValorCobrar.TabIndex = 45;
             // 
             // cobrar
             // 
@@ -240,29 +364,38 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ControlLightLight;
             ClientSize = new Size(1066, 606);
+            Controls.Add(txtValorCobrar);
+            Controls.Add(dtpFecha);
+            Controls.Add(txtSexo);
+            Controls.Add(txtEdad);
+            Controls.Add(txtNombre);
+            Controls.Add(lblSexo);
+            Controls.Add(lblEdad);
+            Controls.Add(lblNombre);
+            Controls.Add(label7);
+            Controls.Add(btnEliminar);
+            Controls.Add(txtTratamiento);
             Controls.Add(btnAnadir);
             Controls.Add(txtSubtotal);
             Controls.Add(label6);
-            Controls.Add(txtValor);
+            Controls.Add(txtValorUnitario);
             Controls.Add(label5);
-            Controls.Add(txtTratamiento);
             Controls.Add(label1);
             Controls.Add(txtCantidad);
             Controls.Add(dataGridView1);
-            Controls.Add(txtPendiente);
-            Controls.Add(txtCobrado);
+            Controls.Add(txtSaldoPendiente);
             Controls.Add(txtTotal);
             Controls.Add(label4);
             Controls.Add(label3);
-            Controls.Add(label2);
+            Controls.Add(lblTotal);
             Controls.Add(btnCobrar);
             Controls.Add(btnCancelar);
-            Controls.Add(tablaPaceinte);
+            Controls.Add(dgvTratamientos);
             Controls.Add(Cantidad);
             Name = "cobrar";
             Text = "Cobrar";
             Load += cobrarForm_Load;
-            ((System.ComponentModel.ISupportInitialize)tablaPaceinte).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvTratamientos).EndInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -271,23 +404,37 @@
         #endregion
 
         private Label Cantidad;
-        private DataGridView tablaPaceinte;
+        private DataGridView dgvTratamientos;
         private Button btnCancelar;
         private Button btnCobrar;
-        private Label label2;
+        private Label lblTotal;
         private Label label3;
         private Label label4;
         private TextBox txtTotal;
-        private TextBox txtCobrado;
-        private TextBox txtPendiente;
+        private TextBox txtSaldoPendiente;
         private DataGridView dataGridView1;
         private TextBox txtCantidad;
-        private TextBox txtValor;
+        private TextBox txtValorUnitario;
         private Label label1;
-        private ComboBox txtTratamiento;
         private Label label5;
         private Label label6;
         private TextBox txtSubtotal;
         private Button btnAnadir;
+        private TextBox txtTratamiento;
+        private Button btnEliminar;
+        private Label label7;
+        private Label lblNombre;
+        private Label lblEdad;
+        private Label lblSexo;
+        private TextBox txtNombre;
+        private TextBox txtEdad;
+        private TextBox txtSexo;
+        private DateTimePicker dtpFecha;
+        private DataGridViewTextBoxColumn N;
+        private DataGridViewTextBoxColumn Column1;
+        private DataGridViewTextBoxColumn Column2;
+        private DataGridViewTextBoxColumn Column3;
+        private DataGridViewTextBoxColumn Column4;
+        private TextBox txtValorCobrar;
     }
 }

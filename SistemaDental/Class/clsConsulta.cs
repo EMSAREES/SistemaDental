@@ -17,7 +17,16 @@ namespace SistemaDental.Class
         public DateTime Fecha { get; set; }
         public string NombrePaciente { get; set; }
 
-        public bool Crear(int idPaciente, string motivo, out int idConsulta)
+        // Datos adicionales del paciente
+        public int Edad { get; set; }
+        public string Sexo { get; set; }
+        public string Direccion { get; set; }
+        public string Telefono { get; set; }
+        public string Alergias { get; set; }
+        public string Hipersensibilidad { get; set; }
+        public string SangradoEncias { get; set; }
+
+        public bool Crear(out int idConsulta)
         {
             idConsulta = 0;
             SqlConnection con = new SqlConnection(ConexionSql.conectar());
@@ -26,8 +35,8 @@ namespace SistemaDental.Class
 
             try
             {
-                cmd.Parameters.AddWithValue("@IdPaciente", idPaciente);
-                cmd.Parameters.AddWithValue("@Motivo", motivo ?? (object)DBNull.Value);
+                cmd.Parameters.AddWithValue("@IdPaciente", IdPaciente);
+                cmd.Parameters.AddWithValue("@Motivo", Motivo ?? (object)DBNull.Value);
                 SqlParameter paramId = cmd.Parameters.Add("@Id", SqlDbType.Int);
                 paramId.Direction = ParameterDirection.Output;
 
@@ -90,6 +99,84 @@ namespace SistemaDental.Class
             catch (Exception ex)
             {
                 MessageBox.Show($"Error al obtener consulta: {ex.Message}");
+            }
+            finally
+            {
+                con.Close();
+            }
+            return dt;
+        }
+
+        // NUEVO MÉTODO: Obtener consulta completa con datos del paciente
+        public DataTable ObtenerConsultaCompleta(int idConsulta)
+        {
+            DataTable dt = new DataTable();
+            SqlConnection con = new SqlConnection(ConexionSql.conectar());
+            SqlCommand cmd = new SqlCommand("sp_obtener_consulta_completa", con);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            try
+            {
+                cmd.Parameters.AddWithValue("@IdConsulta", idConsulta);
+                con.Open();
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                da.Fill(dt);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al obtener consulta completa: {ex.Message}");
+            }
+            finally
+            {
+                con.Close();
+            }
+            return dt;
+        }
+
+        // NUEVO MÉTODO: Obtener última consulta del paciente
+        public DataTable ObtenerUltimaConsultaPaciente(int idPaciente)
+        {
+            DataTable dt = new DataTable();
+            SqlConnection con = new SqlConnection(ConexionSql.conectar());
+            SqlCommand cmd = new SqlCommand("sp_obtener_ultima_consulta_paciente", con);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            try
+            {
+                cmd.Parameters.AddWithValue("@IdPaciente", idPaciente);
+                con.Open();
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                da.Fill(dt);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al obtener última consulta: {ex.Message}");
+            }
+            finally
+            {
+                con.Close();
+            }
+            return dt;
+        }
+
+        // NUEVO MÉTODO: Obtener solo datos del paciente
+        public DataTable ObtenerDatosPaciente(int idPaciente)
+        {
+            DataTable dt = new DataTable();
+            SqlConnection con = new SqlConnection(ConexionSql.conectar());
+            SqlCommand cmd = new SqlCommand("sp_obtener_datos_paciente", con);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            try
+            {
+                cmd.Parameters.AddWithValue("@IdPaciente", idPaciente);
+                con.Open();
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                da.Fill(dt);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al obtener datos del paciente: {ex.Message}");
             }
             finally
             {
@@ -170,5 +257,8 @@ namespace SistemaDental.Class
                 con.Close();
             }
         }
+
+
+
     }
 }

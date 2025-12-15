@@ -16,6 +16,13 @@ namespace SistemaDental.Forms
         public Menu()
         {
             InitializeComponent();
+
+            AbrirFormulario(new agendaForm());
+        }
+
+        private void btnAgendar_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario(new agendaForm());
         }
 
         private void btnConsulta_Click(object sender, EventArgs e)
@@ -36,6 +43,16 @@ namespace SistemaDental.Forms
         private void Menu_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnIngresos_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario(new ingresosForm());
+        }
+
+        private void btnPaciente_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario(new Paciente(this));
         }
     }
 }

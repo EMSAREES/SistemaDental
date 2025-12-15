@@ -30,7 +30,6 @@
         {
             panel1 = new Panel();
             panel2 = new Panel();
-            btnUsuario = new Button();
             btnIngresos = new Button();
             btnConsulta = new Button();
             btnPaciente = new Button();
@@ -43,7 +42,6 @@
             // 
             panel1.BackColor = Color.FromArgb(0, 122, 204);
             panel1.Controls.Add(panel2);
-            panel1.Controls.Add(btnUsuario);
             panel1.Controls.Add(btnIngresos);
             panel1.Controls.Add(btnConsulta);
             panel1.Controls.Add(btnPaciente);
@@ -60,19 +58,6 @@
             panel2.Size = new Size(200, 100);
             panel2.TabIndex = 1;
             // 
-            // btnUsuario
-            // 
-            btnUsuario.BackColor = Color.FromArgb(0, 122, 204);
-            btnUsuario.Cursor = Cursors.Hand;
-            btnUsuario.Font = new Font("Arial Black", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnUsuario.ForeColor = Color.Transparent;
-            btnUsuario.Location = new Point(11, 556);
-            btnUsuario.Name = "btnUsuario";
-            btnUsuario.Size = new Size(180, 46);
-            btnUsuario.TabIndex = 5;
-            btnUsuario.Text = "Usuario";
-            btnUsuario.UseVisualStyleBackColor = false;
-            // 
             // btnIngresos
             // 
             btnIngresos.BackColor = Color.FromArgb(0, 122, 204);
@@ -85,6 +70,7 @@
             btnIngresos.TabIndex = 4;
             btnIngresos.Text = "Ingresos";
             btnIngresos.UseVisualStyleBackColor = false;
+            btnIngresos.Click += btnIngresos_Click;
             // 
             // btnConsulta
             // 
@@ -112,6 +98,7 @@
             btnPaciente.TabIndex = 2;
             btnPaciente.Text = "Paciente";
             btnPaciente.UseVisualStyleBackColor = false;
+            btnPaciente.Click += btnPaciente_Click;
             // 
             // btnAgendar
             // 
@@ -125,6 +112,7 @@
             btnAgendar.TabIndex = 1;
             btnAgendar.Text = "Agendar";
             btnAgendar.UseVisualStyleBackColor = false;
+            btnAgendar.Click += btnAgendar_Click;
             // 
             // panelContenedor
             // 
@@ -155,7 +143,6 @@
         private Button btnIngresos;
         private Button btnConsulta;
         private Button btnPaciente;
-        private Button btnUsuario;
         private Panel panel2;
         private Panel panelContenedor;
     }

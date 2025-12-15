@@ -36,29 +36,46 @@
             tabPage4 = new TabPage();
             tabControl2 = new TabControl();
             paciente = new TabPage();
+            btnImprimir = new Button();
+            txtSangrado = new TextBox();
+            txtHipersensibilidad = new TextBox();
+            txtAlergias = new TextBox();
+            txtTelefono = new TextBox();
+            txtDireccion = new TextBox();
+            txtSexo = new TextBox();
+            txtEdad = new TextBox();
+            txtNombre = new TextBox();
+            lblSangrado = new Label();
+            lblHipersensibilidad = new Label();
+            lblAlergias = new Label();
+            lblTelefono = new Label();
+            lblDireccion = new Label();
+            lblSexo = new Label();
+            lblEdad = new Label();
+            lblNombre = new Label();
             btnCobrar = new Button();
             btnEliminar = new Button();
             btnAgendar = new Button();
-            textBox1 = new TextBox();
+            txtMotivo = new TextBox();
             tablaPaceinte = new DataGridView();
             label1 = new Label();
             motivodeconsulta = new Label();
             tratamientos = new TabPage();
-            txtPendiente = new TextBox();
-            txtCobrado = new TextBox();
+            btnCo = new Button();
+            txtSaldoPendiente = new TextBox();
+            txtValorCobrado = new TextBox();
             txtTotal = new TextBox();
             label4 = new Label();
             label3 = new Label();
             label2 = new Label();
-            button1 = new Button();
-            dataGridView1 = new DataGridView();
+            dgvHistorial = new DataGridView();
             contextMenuStrip1.SuspendLayout();
             tabControl1.SuspendLayout();
             tabControl2.SuspendLayout();
             paciente.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)tablaPaceinte).BeginInit();
             tratamientos.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvHistorial).BeginInit();
             SuspendLayout();
             // 
             // contextMenuStrip1
@@ -115,10 +132,27 @@
             // 
             // paciente
             // 
+            paciente.Controls.Add(btnImprimir);
+            paciente.Controls.Add(txtSangrado);
+            paciente.Controls.Add(txtHipersensibilidad);
+            paciente.Controls.Add(txtAlergias);
+            paciente.Controls.Add(txtTelefono);
+            paciente.Controls.Add(txtDireccion);
+            paciente.Controls.Add(txtSexo);
+            paciente.Controls.Add(txtEdad);
+            paciente.Controls.Add(txtNombre);
+            paciente.Controls.Add(lblSangrado);
+            paciente.Controls.Add(lblHipersensibilidad);
+            paciente.Controls.Add(lblAlergias);
+            paciente.Controls.Add(lblTelefono);
+            paciente.Controls.Add(lblDireccion);
+            paciente.Controls.Add(lblSexo);
+            paciente.Controls.Add(lblEdad);
+            paciente.Controls.Add(lblNombre);
             paciente.Controls.Add(btnCobrar);
             paciente.Controls.Add(btnEliminar);
             paciente.Controls.Add(btnAgendar);
-            paciente.Controls.Add(textBox1);
+            paciente.Controls.Add(txtMotivo);
             paciente.Controls.Add(tablaPaceinte);
             paciente.Controls.Add(label1);
             paciente.Controls.Add(motivodeconsulta);
@@ -130,12 +164,161 @@
             paciente.Text = "Paciente";
             paciente.UseVisualStyleBackColor = true;
             // 
+            // btnImprimir
+            // 
+            btnImprimir.BackColor = Color.DarkCyan;
+            btnImprimir.Cursor = Cursors.Hand;
+            btnImprimir.ForeColor = Color.Transparent;
+            btnImprimir.Location = new Point(705, 471);
+            btnImprimir.Name = "btnImprimir";
+            btnImprimir.Size = new Size(156, 54);
+            btnImprimir.TabIndex = 26;
+            btnImprimir.Text = "IMPRIMIR";
+            btnImprimir.UseVisualStyleBackColor = false;
+            btnImprimir.Click += btnImprimir_Click;
+            // 
+            // txtSangrado
+            // 
+            txtSangrado.Enabled = false;
+            txtSangrado.Location = new Point(107, 356);
+            txtSangrado.Name = "txtSangrado";
+            txtSangrado.Size = new Size(150, 23);
+            txtSangrado.TabIndex = 25;
+            // 
+            // txtHipersensibilidad
+            // 
+            txtHipersensibilidad.Enabled = false;
+            txtHipersensibilidad.Location = new Point(154, 322);
+            txtHipersensibilidad.Name = "txtHipersensibilidad";
+            txtHipersensibilidad.Size = new Size(150, 23);
+            txtHipersensibilidad.TabIndex = 24;
+            // 
+            // txtAlergias
+            // 
+            txtAlergias.Enabled = false;
+            txtAlergias.Location = new Point(105, 289);
+            txtAlergias.Name = "txtAlergias";
+            txtAlergias.Size = new Size(150, 23);
+            txtAlergias.TabIndex = 23;
+            // 
+            // txtTelefono
+            // 
+            txtTelefono.Enabled = false;
+            txtTelefono.Location = new Point(105, 261);
+            txtTelefono.Name = "txtTelefono";
+            txtTelefono.Size = new Size(150, 23);
+            txtTelefono.TabIndex = 22;
+            // 
+            // txtDireccion
+            // 
+            txtDireccion.Enabled = false;
+            txtDireccion.Location = new Point(107, 232);
+            txtDireccion.Name = "txtDireccion";
+            txtDireccion.Size = new Size(150, 23);
+            txtDireccion.TabIndex = 21;
+            // 
+            // txtSexo
+            // 
+            txtSexo.Enabled = false;
+            txtSexo.Location = new Point(107, 200);
+            txtSexo.Name = "txtSexo";
+            txtSexo.Size = new Size(150, 23);
+            txtSexo.TabIndex = 20;
+            // 
+            // txtEdad
+            // 
+            txtEdad.Enabled = false;
+            txtEdad.Location = new Point(107, 168);
+            txtEdad.Name = "txtEdad";
+            txtEdad.Size = new Size(150, 23);
+            txtEdad.TabIndex = 19;
+            // 
+            // txtNombre
+            // 
+            txtNombre.Enabled = false;
+            txtNombre.Location = new Point(107, 133);
+            txtNombre.Name = "txtNombre";
+            txtNombre.Size = new Size(150, 23);
+            txtNombre.TabIndex = 18;
+            // 
+            // lblSangrado
+            // 
+            lblSangrado.AutoSize = true;
+            lblSangrado.Location = new Point(37, 359);
+            lblSangrado.Name = "lblSangrado";
+            lblSangrado.Size = new Size(57, 15);
+            lblSangrado.TabIndex = 17;
+            lblSangrado.Text = "Sangrado";
+            // 
+            // lblHipersensibilidad
+            // 
+            lblHipersensibilidad.AutoSize = true;
+            lblHipersensibilidad.Location = new Point(37, 325);
+            lblHipersensibilidad.Name = "lblHipersensibilidad";
+            lblHipersensibilidad.Size = new Size(98, 15);
+            lblHipersensibilidad.TabIndex = 16;
+            lblHipersensibilidad.Text = "Hipersensibilidad";
+            // 
+            // lblAlergias
+            // 
+            lblAlergias.AutoSize = true;
+            lblAlergias.Location = new Point(37, 292);
+            lblAlergias.Name = "lblAlergias";
+            lblAlergias.Size = new Size(49, 15);
+            lblAlergias.TabIndex = 15;
+            lblAlergias.Text = "Alergias";
+            // 
+            // lblTelefono
+            // 
+            lblTelefono.AutoSize = true;
+            lblTelefono.Location = new Point(33, 266);
+            lblTelefono.Name = "lblTelefono";
+            lblTelefono.Size = new Size(53, 15);
+            lblTelefono.TabIndex = 14;
+            lblTelefono.Text = "Telefono";
+            // 
+            // lblDireccion
+            // 
+            lblDireccion.AutoSize = true;
+            lblDireccion.Location = new Point(37, 235);
+            lblDireccion.Name = "lblDireccion";
+            lblDireccion.Size = new Size(57, 15);
+            lblDireccion.TabIndex = 13;
+            lblDireccion.Text = "Direccion";
+            // 
+            // lblSexo
+            // 
+            lblSexo.AutoSize = true;
+            lblSexo.Location = new Point(37, 203);
+            lblSexo.Name = "lblSexo";
+            lblSexo.Size = new Size(31, 15);
+            lblSexo.TabIndex = 12;
+            lblSexo.Text = "Sexo";
+            // 
+            // lblEdad
+            // 
+            lblEdad.AutoSize = true;
+            lblEdad.Location = new Point(37, 171);
+            lblEdad.Name = "lblEdad";
+            lblEdad.Size = new Size(33, 15);
+            lblEdad.TabIndex = 11;
+            lblEdad.Text = "Edad";
+            // 
+            // lblNombre
+            // 
+            lblNombre.AutoSize = true;
+            lblNombre.Location = new Point(37, 136);
+            lblNombre.Name = "lblNombre";
+            lblNombre.Size = new Size(51, 15);
+            lblNombre.TabIndex = 10;
+            lblNombre.Text = "Nombre";
+            // 
             // btnCobrar
             // 
             btnCobrar.BackColor = Color.DarkCyan;
             btnCobrar.Cursor = Cursors.Hand;
             btnCobrar.ForeColor = Color.Transparent;
-            btnCobrar.Location = new Point(594, 474);
+            btnCobrar.Location = new Point(543, 471);
             btnCobrar.Name = "btnCobrar";
             btnCobrar.Size = new Size(156, 54);
             btnCobrar.TabIndex = 9;
@@ -148,32 +331,34 @@
             btnEliminar.BackColor = Color.DarkCyan;
             btnEliminar.Cursor = Cursors.Hand;
             btnEliminar.ForeColor = Color.Transparent;
-            btnEliminar.Location = new Point(435, 474);
+            btnEliminar.Location = new Point(384, 471);
             btnEliminar.Name = "btnEliminar";
             btnEliminar.Size = new Size(156, 54);
             btnEliminar.TabIndex = 8;
             btnEliminar.Text = "ELIMINAR CONSULTA";
             btnEliminar.UseVisualStyleBackColor = false;
+            btnEliminar.Click += btnEliminar_Click;
             // 
             // btnAgendar
             // 
             btnAgendar.BackColor = Color.DarkCyan;
             btnAgendar.Cursor = Cursors.Hand;
             btnAgendar.ForeColor = Color.Transparent;
-            btnAgendar.Location = new Point(273, 474);
+            btnAgendar.Location = new Point(222, 471);
             btnAgendar.Name = "btnAgendar";
             btnAgendar.Size = new Size(156, 54);
             btnAgendar.TabIndex = 7;
             btnAgendar.Text = "AGENDAR CITA";
             btnAgendar.UseVisualStyleBackColor = false;
+            btnAgendar.Click += btnAgendar_Click;
             // 
-            // textBox1
+            // txtMotivo
             // 
-            textBox1.Enabled = false;
-            textBox1.Location = new Point(163, 79);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(322, 23);
-            textBox1.TabIndex = 5;
+            txtMotivo.Enabled = false;
+            txtMotivo.Location = new Point(163, 79);
+            txtMotivo.Name = "txtMotivo";
+            txtMotivo.Size = new Size(322, 23);
+            txtMotivo.TabIndex = 5;
             // 
             // tablaPaceinte
             // 
@@ -203,18 +388,17 @@
             motivodeconsulta.Size = new Size(133, 20);
             motivodeconsulta.TabIndex = 3;
             motivodeconsulta.Text = "Motivo de Consulta:";
-            motivodeconsulta.Click += motivodeconsulta_Click;
             // 
             // tratamientos
             // 
-            tratamientos.Controls.Add(txtPendiente);
-            tratamientos.Controls.Add(txtCobrado);
+            tratamientos.Controls.Add(btnCo);
+            tratamientos.Controls.Add(txtSaldoPendiente);
+            tratamientos.Controls.Add(txtValorCobrado);
             tratamientos.Controls.Add(txtTotal);
             tratamientos.Controls.Add(label4);
             tratamientos.Controls.Add(label3);
             tratamientos.Controls.Add(label2);
-            tratamientos.Controls.Add(button1);
-            tratamientos.Controls.Add(dataGridView1);
+            tratamientos.Controls.Add(dgvHistorial);
             tratamientos.Location = new Point(4, 24);
             tratamientos.Name = "tratamientos";
             tratamientos.Padding = new Padding(3);
@@ -223,21 +407,33 @@
             tratamientos.Text = "Tratamientos";
             tratamientos.UseVisualStyleBackColor = true;
             // 
-            // txtPendiente
+            // btnCo
             // 
-            txtPendiente.Enabled = false;
-            txtPendiente.Location = new Point(662, 426);
-            txtPendiente.Name = "txtPendiente";
-            txtPendiente.Size = new Size(128, 23);
-            txtPendiente.TabIndex = 31;
+            btnCo.BackColor = Color.DarkCyan;
+            btnCo.Cursor = Cursors.Hand;
+            btnCo.ForeColor = Color.Transparent;
+            btnCo.Location = new Point(832, 405);
+            btnCo.Name = "btnCo";
+            btnCo.Size = new Size(156, 54);
+            btnCo.TabIndex = 32;
+            btnCo.Text = "COBRAR";
+            btnCo.UseVisualStyleBackColor = false;
+            btnCo.Click += btnCo_Click;
             // 
-            // txtCobrado
+            // txtSaldoPendiente
             // 
-            txtCobrado.Enabled = false;
-            txtCobrado.Location = new Point(398, 422);
-            txtCobrado.Name = "txtCobrado";
-            txtCobrado.Size = new Size(128, 23);
-            txtCobrado.TabIndex = 30;
+            txtSaldoPendiente.Enabled = false;
+            txtSaldoPendiente.Location = new Point(662, 426);
+            txtSaldoPendiente.Name = "txtSaldoPendiente";
+            txtSaldoPendiente.Size = new Size(128, 23);
+            txtSaldoPendiente.TabIndex = 31;
+            // 
+            // txtValorCobrado
+            // 
+            txtValorCobrado.Location = new Point(398, 422);
+            txtValorCobrado.Name = "txtValorCobrado";
+            txtValorCobrado.Size = new Size(128, 23);
+            txtValorCobrado.TabIndex = 30;
             // 
             // txtTotal
             // 
@@ -277,27 +473,15 @@
             label2.TabIndex = 26;
             label2.Text = "Total:";
             // 
-            // button1
+            // dgvHistorial
             // 
-            button1.BackColor = Color.DarkCyan;
-            button1.Cursor = Cursors.Hand;
-            button1.ForeColor = Color.Transparent;
-            button1.Location = new Point(807, 409);
-            button1.Name = "button1";
-            button1.Size = new Size(156, 54);
-            button1.TabIndex = 25;
-            button1.Text = "COBRAR";
-            button1.UseVisualStyleBackColor = false;
-            // 
-            // dataGridView1
-            // 
-            dataGridView1.BackgroundColor = Color.White;
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.GridColor = Color.White;
-            dataGridView1.Location = new Point(3, 24);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(1028, 346);
-            dataGridView1.TabIndex = 23;
+            dgvHistorial.BackgroundColor = Color.White;
+            dgvHistorial.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvHistorial.GridColor = Color.White;
+            dgvHistorial.Location = new Point(3, 24);
+            dgvHistorial.Name = "dgvHistorial";
+            dgvHistorial.Size = new Size(1028, 346);
+            dgvHistorial.TabIndex = 23;
             // 
             // Consulta
             // 
@@ -307,7 +491,7 @@
             Controls.Add(tabControl2);
             Controls.Add(tabControl1);
             Name = "Consulta";
-            Text = "consultaForm";
+            Text = "Consulta";
             contextMenuStrip1.ResumeLayout(false);
             tabControl1.ResumeLayout(false);
             tabControl2.ResumeLayout(false);
@@ -316,7 +500,7 @@
             ((System.ComponentModel.ISupportInitialize)tablaPaceinte).EndInit();
             tratamientos.ResumeLayout(false);
             tratamientos.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvHistorial).EndInit();
             ResumeLayout(false);
         }
 
@@ -328,7 +512,7 @@
         private TabPage tabPage4;
         private TabControl tabControl2;
         private TabPage paciente;
-        private TextBox textBox1;
+        private TextBox txtMotivo;
         private Label label1;
         private Label motivodeconsulta;
         private TabPage tratamientos;
@@ -336,13 +520,31 @@
         private Button btnAgendar;
         private Button btnCobrar;
         private Button btnEliminar;
-        private TextBox txtPendiente;
-        private TextBox txtCobrado;
+        private TextBox txtSaldoPendiente;
+        private TextBox txtValorCobrado;
         private TextBox txtTotal;
         private Label label4;
         private Label label3;
         private Label label2;
-        private Button button1;
-        private DataGridView dataGridView1;
+    
+        private DataGridView dgvHistorial;
+        private Label lblSangrado;
+        private Label lblHipersensibilidad;
+        private Label lblAlergias;
+        private Label lblTelefono;
+        private Label lblDireccion;
+        private Label lblSexo;
+        private Label lblEdad;
+        private Label lblNombre;
+        private TextBox txtSangrado;
+        private TextBox txtHipersensibilidad;
+        private TextBox txtAlergias;
+        private TextBox txtTelefono;
+        private TextBox txtDireccion;
+        private TextBox txtSexo;
+        private TextBox txtEdad;
+        private TextBox txtNombre;
+        private Button btnCo;
+        private Button btnImprimir;
     }
 }

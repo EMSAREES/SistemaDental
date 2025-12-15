@@ -20,6 +20,7 @@ namespace SistemaDental.Class
         public string Deuda { get; set; }
         public string NombrePaciente { get; set; }
 
+        // Crear pago (original)
         public bool Crear(int idConsulta, int idPaciente, decimal valorTotal, decimal valorPagado, string deuda, out int idPago)
         {
             idPago = 0;
@@ -53,6 +54,48 @@ namespace SistemaDental.Class
             }
         }
 
+        // NUEVO: Guardar pago completo (crear o actualizar)
+        public bool GuardarPagoCompleto(int idConsulta, int idPaciente, decimal valorTotal, decimal valorCobrado, out int idPago, out string mensaje)
+        {
+            idPago = 0;
+            mensaje = "";
+            SqlConnection con = new SqlConnection(ConexionSql.conectar());
+            SqlCommand cmd = new SqlCommand("sp_guardar_pago_completo", con);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            try
+            {
+                cmd.Parameters.AddWithValue("@IdConsulta", idConsulta);
+                cmd.Parameters.AddWithValue("@IdPaciente", idPaciente);
+                cmd.Parameters.AddWithValue("@ValorTotal", valorTotal);
+                cmd.Parameters.AddWithValue("@ValorCobrado", valorCobrado);
+
+                SqlParameter paramIdPago = cmd.Parameters.Add("@IdPago", SqlDbType.Int);
+                paramIdPago.Direction = ParameterDirection.Output;
+
+                SqlParameter paramMensaje = cmd.Parameters.Add("@Mensaje", SqlDbType.VarChar, 200);
+                paramMensaje.Direction = ParameterDirection.Output;
+
+                con.Open();
+                cmd.ExecuteNonQuery();
+
+                idPago = (int)paramIdPago.Value;
+                mensaje = paramMensaje.Value.ToString();
+
+                return idPago > 0;
+            }
+            catch (Exception ex)
+            {
+                mensaje = $"Error: {ex.Message}";
+                return false;
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+
+        // Actualizar pago
         public bool Actualizar(int id, decimal valorPagado, string deuda)
         {
             SqlConnection con = new SqlConnection(ConexionSql.conectar());
@@ -80,6 +123,7 @@ namespace SistemaDental.Class
             }
         }
 
+        // Obtener pago por consulta
         public DataTable ObtenerPorConsulta(int idConsulta)
         {
             DataTable dt = new DataTable();
@@ -97,6 +141,95 @@ namespace SistemaDental.Class
             catch (Exception ex)
             {
                 MessageBox.Show($"Error al obtener pago: {ex.Message}");
+            }
+            finally
+            {
+                con.Close();
+            }
+            return dt;
+        }
+
+        // NUEVO: Obtener resumen de pago
+        public DataTable ObtenerResumenPago(int idConsulta)
+        {
+            DataTable dt = new DataTable();
+            SqlConnection con = new SqlConnection(ConexionSql.conectar());
+            SqlCommand cmd = new SqlCommand("sp_obtener_resumen_pago", con);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            try
+            {
+                cmd.Parameters.AddWithValue("@IdConsulta", idConsulta);
+                con.Open();
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                da.Fill(dt);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al obtener resumen: {ex.Message}");
+            }
+            finally
+            {
+                con.Close();
+            }
+            return dt;
+        }
+
+        // NUEVO: Verificar si existe pago
+        public bool VerificarPagoExistente(int idConsulta, out int idPago)
+        {
+            idPago = 0;
+            SqlConnection con = new SqlConnection(ConexionSql.conectar());
+            SqlCommand cmd = new SqlCommand("sp_verificar_pago_existente", con);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            try
+            {
+                cmd.Parameters.AddWithValue("@IdConsulta", idConsulta);
+
+                SqlParameter paramExiste = cmd.Parameters.Add("@Existe", SqlDbType.Bit);
+                paramExiste.Direction = ParameterDirection.Output;
+
+                SqlParameter paramIdPago = cmd.Parameters.Add("@IdPago", SqlDbType.Int);
+                paramIdPago.Direction = ParameterDirection.Output;
+
+                con.Open();
+                cmd.ExecuteNonQuery();
+
+                bool existe = (bool)paramExiste.Value;
+                idPago = (int)paramIdPago.Value;
+
+                return existe;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al verificar pago: {ex.Message}");
+                return false;
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+
+        // NUEVO: Obtener datos para cobro
+        public DataTable ObtenerDatosCobro(int idConsulta)
+        {
+            DataTable dt = new DataTable();
+            SqlConnection con = new SqlConnection(ConexionSql.conectar());
+            SqlCommand cmd = new SqlCommand("sp_obtener_datos_cobro", con);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            try
+            {
+                cmd.Parameters.AddWithValue("@IdConsulta", idConsulta);
+                con.Open();
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                da.Fill(dt);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al obtener datos de cobro: {ex.Message}");
             }
             finally
             {
